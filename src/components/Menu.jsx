@@ -17,10 +17,11 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import OutlinedFlagOutlinedIcon from '@mui/icons-material/OutlinedFlagOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const Container = styled.div`
     flex:1;
-    background-color: ${({theme})=>theme.bg};
+    background-color: ${({theme})=>theme.bgLighter};
     height:100vh;
     color: ${({theme})=>theme.text};
     font-size:14px;
@@ -108,7 +109,9 @@ const Menu = ({darkMode,setDarkMode}) => {
           <Hr/>
           <Login>
           Sign in to like videos, comment, and subscribe.
-          <Button>SIGN IN</Button>
+          <Button>
+            <AccountCircleOutlinedIcon/>
+            SIGN IN</Button>
           </Login>
           <Hr/>
 
