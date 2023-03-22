@@ -20,11 +20,12 @@ import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 
 const Container = styled.div`
     flex:1;
-    background-color: #202020;
+    background-color: ${({theme})=>theme.bg};
     height:100vh;
-    color:white;
+    color: ${({theme})=>theme.text};
     font-size:14px;
-   
+   position: sticky;
+   top: 0;
 `;
 
 const Wrapper = styled.div`
@@ -53,10 +54,35 @@ const Item = styled.div`
 
 const Hr = styled.hr`
   margin: 15px 0px;
-  border : solid 0.5px #373737
+  border : solid 0.5px ${({theme})=>theme.soft};
 `;
 
-const Menu = () => {
+const Login = styled.div`
+  
+`
+const Button = styled.button`
+  padding:5px 15px;
+  background-color: transparent;
+  border : solid 1px #3ea6ff;
+  color: #3ea6ff;
+  border-radius : 6px;
+  font-weight: 500;
+  margin-top: 10px;
+  cursor:pointer;
+  display: flex;
+  align-items: center;
+  gap:5px;
+`
+
+const Title = styled.h2`
+font-size: 14px;
+font-weight:500;
+color: #aaaaa;
+margin-bottom: 20px;
+  
+`
+
+const Menu = ({darkMode,setDarkMode}) => {
   return (
     <Container>
         <Wrapper>
@@ -80,6 +106,13 @@ const Menu = () => {
           </Item>
 
           <Hr/>
+          <Login>
+          Sign in to like videos, comment, and subscribe.
+          <Button>SIGN IN</Button>
+          </Login>
+          <Hr/>
+
+          <Title>Best of HellTube</Title>
 
           <Item>
             <LibraryAddIcon/>
@@ -121,7 +154,7 @@ const Menu = () => {
            Live
           </Item>
           <Hr/>
-          
+
           <Item>
             <SettingsOutlinedIcon/>
             Settings
@@ -134,7 +167,7 @@ const Menu = () => {
             <HelpOutlineOutlinedIcon/>
             Help
           </Item>
-          <Item>
+          <Item onClick={()=>setDarkMode(!darkMode)}>
             <SettingsBrightnessIcon/>
             Light mode
           </Item>
