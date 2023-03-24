@@ -18,6 +18,7 @@ import OutlinedFlagOutlinedIcon from '@mui/icons-material/OutlinedFlagOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     flex:1;
@@ -87,10 +88,11 @@ const Menu = ({darkMode,setDarkMode}) => {
   return (
     <Container>
         <Wrapper>
+           <Link to="/video/test" style={{textDecoration:"none"}}>
           <Logo>
             <Img src={Hell} />HellTube
           </Logo>
-
+            </Link>
           <Item>
             <HomeIcon/>
             Home
