@@ -52,6 +52,10 @@ const Item = styled.div`
   gap:20px;
   cursor:pointer;
   padding: 7.5px 0px;
+
+  &:hover{
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.hr`
@@ -67,7 +71,7 @@ const Button = styled.button`
   background-color: transparent;
   border : solid 1px #3ea6ff;
   color: #3ea6ff;
-  border-radius : 6px;
+  border-radius : 3px;
   font-weight: 500;
   margin-top: 10px;
   cursor:pointer;
@@ -88,7 +92,7 @@ const Menu = ({darkMode,setDarkMode}) => {
   return (
     <Container>
         <Wrapper>
-           <Link to="/video/test" style={{textDecoration:"none"}}>
+           <Link to="/" style={{textDecoration:"none", color:"inherit"}}>
           <Logo>
             <Img src={Hell} />HellTube
           </Logo>
@@ -100,20 +104,22 @@ const Menu = ({darkMode,setDarkMode}) => {
 
           <Item>
             <ExploreIcon/>
-            explore
+            Explore
           </Item>
 
           <Item>
             <SubscriptionsIcon/>
-            subscriptions
+            Subscriptions
           </Item>
 
           <Hr/>
           <Login>
           Sign in to like videos, comment, and subscribe.
+          <Link to="signin" style={{textDecoration:"none"}}>
           <Button>
             <AccountCircleOutlinedIcon/>
             SIGN IN</Button>
+            </Link>
           </Login>
           <Hr/>
 
@@ -126,7 +132,7 @@ const Menu = ({darkMode,setDarkMode}) => {
 
           <Item>
             <HistoryIcon/>
-           history
+           History
           </Item>
 
           <Item>
@@ -174,7 +180,7 @@ const Menu = ({darkMode,setDarkMode}) => {
           </Item>
           <Item onClick={()=>setDarkMode(!darkMode)}>
             <SettingsBrightnessIcon/>
-            Light mode
+            {darkMode ? "Light" : "Dark"} Mode
           </Item>
         </Wrapper>
     </Container>
